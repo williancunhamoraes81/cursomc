@@ -8,21 +8,22 @@ import org.springframework.stereotype.Service;
 
 import com.willianmoraes.cursomc.domain.Categoria;
 import com.willianmoraes.cursomc.domain.Cliente;
-import com.willianmoraes.cursomc.repositories.ClienteRepository;
+import com.willianmoraes.cursomc.domain.Pedido;
+import com.willianmoraes.cursomc.repositories.PedidoRepository;
 import com.willianmoraes.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
-public class ClienteService {
+public class PedidoService {
 
 	@Autowired
-	ClienteRepository repository;
+	PedidoRepository repository;
 	
-	public List<Cliente> findAll(){
+	public List<Pedido> findAll(){
 		return repository.findAll();
 	}
 	
-	public Cliente findById(Integer id){
-		Optional<Cliente> obj = repository.findById(id);		
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado id: " + id + ", Tipo: " + Cliente.class.getName()));
+	public Pedido findById(Integer id){
+		Optional<Pedido> obj = repository.findById(id);		
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado id: " + id + ", Tipo: " + Pedido.class.getName()));
 	}	
 }
